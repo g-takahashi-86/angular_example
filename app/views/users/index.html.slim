@@ -16,8 +16,12 @@ div ng-controller="UserController"
           | {{user.name}}
         td
           | {{user.age}}
-/        td = link_to 'Show', user
-/        td = link_to 'Edit', edit_user_path(user)
+        td
+          a href="/users/{{user.id}}" Show
+        td
+          a href="/users/{{user.id}}/edit" Edit
+        td
+          a ng-click="deleteButton($index)" Destroy
 /        td = link_to 'Destroy', user, data: {:confirm => 'Are you sure?'}, :method => :delete
 
 br
