@@ -55,6 +55,8 @@ gem 'paranoia'
 
 gem 'kaminari'
 
+gem "jquery-turbolinks"
+
 group :development, :test do
   gem 'pry-rails'
 
