@@ -21,3 +21,10 @@ table
 br
 
 = link_to 'New User', new_user_path
+
+div[ng-controller="UserController"]
+  table
+    tbody ng-repeat="user in users"
+      tr
+        td
+          | {{user.name}}
