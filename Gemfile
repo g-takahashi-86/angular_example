@@ -72,7 +72,7 @@ group :development, :test do
   # Use Capistrano for deployment
   gem 'capistrano-rails'
   gem 'capistrano-rbenv'
-  gem 'capistrano3-unicorn'
+  gem 'capistrano-unicorn-nginx', '~> 3.1.0'
 
   gem 'capybara'
   gem "capybara-webkit", "~> 1.3.0"
