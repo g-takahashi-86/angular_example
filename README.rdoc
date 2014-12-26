@@ -51,3 +51,20 @@ Angularとkaminariを使ってページングを実装しています。
 
 というところで、
 /users.jsonへのアクセスをするリソースを定義しています。
+
+* ページング
+
+  html上で、ページネーションを表示するために、usersコントローラでは
+
+    @users = User.all.page(params[:page]).per(10)
+
+  app/views/users/index.html.slim
+  
+  では、
+  
+    = paginate @users
+
+  という感じにしています。
+
+  これで、Angularとは切り離された状態でページングが出来るようになります。
+
