@@ -1,7 +1,19 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Angularを使ってユーザテーブルの一覧を表示します。
+Angularとkaminariを使ってページングを実装しています。
+
+サンプルの実行方法
+
+* rake db:create
+
+* rake db:migrate
+
+* rake db:seed
+  ユーザ100件作成
+
+* rails s
+  サーバ起動
 
 Things you may want to cover:
 
