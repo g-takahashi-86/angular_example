@@ -34,8 +34,14 @@ angularExample.factory 'User', ['$resource', ($resource) ->
 # /users配下で動くコントローラーを定義
 #
 angularExample.controller 'UserController', ($scope, User) ->
-  $scope.users = User.query()
+  # デフォルトのページ番号を設定
+  $scope.page = window.page || 1;
+
+  # ボタンをdisableにするときに使用
   $scope.buttonDisabled = true;
+
+  # クエリを投げるときにページパラメータを送信
+  $scope.users = User.query({page: $scope.page})
 
   #
   # 削除に対するアクション

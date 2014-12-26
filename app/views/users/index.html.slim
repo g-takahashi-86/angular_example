@@ -1,3 +1,6 @@
+javascript:
+  window.page = #{params[:page] || 1};
+
 h1 Listing users
 
 div ng-controller="UserController"
@@ -25,5 +28,7 @@ div ng-controller="UserController"
 /        td = link_to 'Destroy', user, data: {:confirm => 'Are you sure?'}, :method => :delete
 
 br
+
+= paginate @users
 
 = link_to 'New User', new_user_path

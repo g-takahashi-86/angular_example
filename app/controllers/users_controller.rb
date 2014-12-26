@@ -4,9 +4,11 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
+    @users = User.all.page(params[:page]).per(10)
+
     respond_to do |format|
       format.html
-      format.json { @users = User.all }
+      format.json { @users }
     end
   end
 
