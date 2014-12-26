@@ -49,8 +49,8 @@ Angularとkaminariを使ってページングを実装しています。
         query: {method:'GET', params:{id: @id}, isArray:true},
         remove: {method: 'DELETE', params:{id: @id}, url: 'users/:id', withCredentials: true}}]
 
-というところで、
-/users.jsonへのアクセスをするリソースを定義しています。
+  というところで、
+  /users.jsonへのアクセスをするリソースを定義しています。
 
 * ページング
 
