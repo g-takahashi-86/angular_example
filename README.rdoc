@@ -44,10 +44,10 @@ Angularとkaminariを使ってページングを実装しています。
 
   Angularのコード
 
-  angularExample.factory 'User', ['$resource', ($resource) ->
-    return $resource 'users/:id.json', {}, {
-      query: {method:'GET', params:{id: @id}, isArray:true},
-      remove: {method: 'DELETE', params:{id: @id}, url: 'users/:id', withCredentials: true}}]
+    angularExample.factory 'User', ['$resource', ($resource) ->
+      return $resource 'users/:id.json', {}, {
+        query: {method:'GET', params:{id: @id}, isArray:true},
+        remove: {method: 'DELETE', params:{id: @id}, url: 'users/:id', withCredentials: true}}]
 
 というところで、
 /users.jsonへのアクセスをするリソースを定義しています。
