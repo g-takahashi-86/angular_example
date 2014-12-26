@@ -68,3 +68,21 @@ Angularとkaminariを使ってページングを実装しています。
 
   これで、Angularとは切り離された状態でページングが出来るようになります。
 
+  ページングのpage=1とかのパラメータはjavascriptタグで以下のようにもたせます。
+  
+    javascript:
+      window.page = #{params[:page] || 1};
+
+  このwindow.pageをapp/assets/javascripts/users.js.coffeeのコントローラの部分で
+  
+    # デフォルトのページ番号を設定
+    $scope.page = window.page || 1;
+
+としてコントローラ内部の変数に取り込んでいます。
+
+取り込んだページ数を、クエリを投げるときに
+
+  # クエリを投げるときにページパラメータを送信
+  $scope.users = User.query({page: $scope.page})
+
+という感じに渡して上げれば、jsonの結果がページング対応となります。
