@@ -15,6 +15,36 @@ Angularとkaminariを使ってページングを実装しています。
 * rails s
   サーバ起動
 
+簡単に解説
+
+views/users/index.html.slim
+ユーザの一覧を表示
+/users
+という形で叩かれます。
+
+app/views/users/index.json.jbuilder
+Angularのリソースから叩かれるjson
+/users.json
+という形で叩かれます。
+
+app/controllers/users_controller.rb
+indexアクションで、respond_toでhtmlとjsonで切り分けています。
+
+/usersが表示されると
+Angularによって動的にリストが生成されます。
+
+app/assets/javascripts/users.js.coffee
+Angularのコード
+
+  angularExample.factory 'User', ['$resource', ($resource) ->
+    return $resource 'users/:id.json', {}, {
+      query: {method:'GET', params:{id: @id}, isArray:true},
+      remove: {method: 'DELETE', params:{id: @id}, url: 'users/:id', withCredentials: true}}]
+
+というところで、
+/users.jsonへのアクセスをするリソースを定義しています。
+
+
 Things you may want to cover:
 
 * Ruby version
