@@ -17,24 +17,32 @@ Angularとkaminariを使ってページングを実装しています。
 
 簡単に解説
 
-views/users/index.html.slim
-ユーザの一覧を表示
-/users
-という形で叩かれます。
+* views/users/index.html.slim
+  
+  ユーザの一覧を表示
 
-app/views/users/index.json.jbuilder
-Angularのリソースから叩かれるjson
-/users.json
-という形で叩かれます。
+  /users
 
-app/controllers/users_controller.rb
-indexアクションで、respond_toでhtmlとjsonで切り分けています。
+  という形で叩かれます。
 
-/usersが表示されると
-Angularによって動的にリストが生成されます。
+* app/views/users/index.json.jbuilder
+  Angularのリソースから叩かれるjson
+  
+  /users.json
+  
+  という形で叩かれます。
 
-app/assets/javascripts/users.js.coffee
-Angularのコード
+* app/controllers/users_controller.rb
+
+  indexアクションで、respond_toでhtmlとjsonで切り分けています。
+
+  /usersが表示されると
+
+  Angularによって動的にリストが生成されます。
+
+* app/assets/javascripts/users.js.coffee
+
+  Angularのコード
 
   angularExample.factory 'User', ['$resource', ($resource) ->
     return $resource 'users/:id.json', {}, {
@@ -43,28 +51,3 @@ Angularのコード
 
 というところで、
 /users.jsonへのアクセスをするリソースを定義しています。
-
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
